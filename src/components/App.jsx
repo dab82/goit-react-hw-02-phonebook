@@ -1,10 +1,10 @@
 import { Component } from "react";
-// import { ToastContainer } from "react-toastify";
 import { GlobalStyle } from "../mainstyle/GlobalStyle";
 import { ContactForm } from "./ContactForm/ContactForm";
 import { ContactList } from "./ContactList/ContactList";
 import { Filter } from "./Filter/Filter";
 import { Container, MainTitle, SubTitle } from "./AppStyle";
+
 export class App extends Component {
 	state = {
 		contacts: [
@@ -19,7 +19,7 @@ export class App extends Component {
 	onSubmitHandler = ({ id, name, number }) => {
 		const contact = { id, name, number };
 		this.setState(({ contacts }) => {
-			return { contacts: [contact, ...contacts], filter: "" };
+			return { contacts: [contact, ...contacts] };
 		});
 	};
 
@@ -69,7 +69,6 @@ export class App extends Component {
 					onDelete={this.onDeleteHandler}
 					filterContacts={this.onFilterContacts}
 				/>
-				{/* <ToastContainer position="top-center" autoClose={3000} /> */}
 			</Container>
 		);
 	}

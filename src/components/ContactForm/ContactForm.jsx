@@ -1,7 +1,8 @@
 import { Component } from "react";
 import { Formik, ErrorMessage } from "formik";
 import { nanoid } from "nanoid";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Button } from "../Buttons/Button";
 import { AddForm, Input, Message, LabelForm } from "./ContactFormStyle";
 import propTypes from "prop-types";
@@ -26,7 +27,7 @@ export class ContactForm extends Component {
 			(contact) => contact.name.toLowerCase() === name.toLowerCase()
 		);
 		if (nameInContacts) {
-			alert(`${name} is already in contacts`);
+			toast.warn(`${name} is already in contacts`);
 			return;
 		}
 		const contact = { id: nanoid(), name, number };
